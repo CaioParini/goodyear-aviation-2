@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///C:/Users/ac03086/Downloads/index.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goodyear Aviation</title>
+<link href="./Goodyear Aviation_files/css2" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 18px; }
+
+  body {
+    background: #001040;
+    font-family: 'Barlow', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .wrapper {
+    width: 860px;
+    background: #003087;
+    overflow: hidden;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.9);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 620px;
+    background: linear-gradient(135deg, #001040 0%, #002070 45%, #005EB8 100%);
+    overflow: hidden;
+  }
+
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      168deg,
+      transparent 0px, transparent 50px,
+      rgba(255,255,255,0.018) 50px, rgba(255,255,255,0.018) 51px
+    );
+  }
+
+  .tire-wrap {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 520px;
+    height: 520px;
+    animation: spin 22s linear infinite;
+  }
+  @keyframes spin {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to   { transform: translateY(-50%) rotate(360deg); }
+  }
+
+  .glow {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,168,0,0.11) 0%, transparent 65%);
+    animation: breathe 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes breathe {
+    0%,100% { opacity:1; transform:translateY(-50%) scale(1); }
+    50%      { opacity:0.7; transform:translateY(-50%) scale(1.06); }
+  }
+
+  /* ── NAV / BRAND ── */
+  .hero-nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px 44px;
+    border-bottom: 1px solid rgba(245,168,0,0.25);
+    z-index: 10;
+  }
+
+  /* BRAND BLOCK — grande e destacado */
+  .brand-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .brand-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 52px;
+    color: #FFC20E;
+    letter-spacing: 6px;
+    line-height: 1;
+    text-shadow: 0 0 40px rgba(245,168,0,0.4);
+  }
+  .brand-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+  }
+  .brand-division {
+    display: inline-block;
+    margin-top: 4px;
+    background: #FFC20E;
+    color: #003087;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 3px;
+    padding: 3px 10px;
+    text-transform: uppercase;
+  }
+
+  .nav-right {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(168,180,200,0.6);
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* Hero text */
+  .hero-text {
+    position: absolute;
+    left: 44px;
+    top: 50%;
+    transform: translateY(-38%);
+    z-index: 10;
+    max-width: 400px;
+  }
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #FFC20E;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .eyebrow::before { content:''; width:28px; height:1px; background:#FFC20E; }
+
+  .hero-h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 0.88;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+  }
+  .hero-h1 .gold { color: #FFC20E; display: block; font-size: 106px; }
+
+  .hero-sub {
+    margin-top: 22px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #A8B4C8;
+    font-weight: 300;
+  }
+
+  /* ── LÍDER BADGES ── */
+  .leader-badges {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(245,168,0,0.12);
+    border: 1px solid rgba(245,168,0,0.35);
+    color: #FFC20E;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    text-transform: uppercase;
+  }
+
+  /* Gold divider */
+  .gold-bar { height: 5px; background: linear-gradient(90deg,#E6A800,#FFC20E,#FFD84D,#FFC20E,#E6A800); }
+
+  /* ── STATS ── */
+  .stats {
+    background: #001540;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat {
+    padding: 30px 18px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.05);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-n {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    color: #FFC20E;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .stat-l { font-size: 10px; letter-spacing: 2px; color: #A8B4C8; text-transform: uppercase; margin-top: 6px; }
+
+  /* ── GARANTIA BANNER ── */
+  .garantia {
+    background: linear-gradient(90deg, #FFC20E 0%, #FFD84D 50%, #FFC20E 100%);
+    padding: 22px 44px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .garantia-icon { font-size: 36px; flex-shrink: 0; }
+  .garantia-text {}
+  .garantia-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #003087;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .garantia-desc {
+    font-size: 12px;
+    color: rgba(0,16,58,0.75);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    padding: 54px 44px 46px;
+    background: #003087;
+    position: relative;
+    overflow: hidden;
+  }
+  .intro::after {
+    content: 'G';
+    position: absolute;
+    right: -10px; top: -50px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 340px;
+    color: rgba(245,168,0,0.03);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .section-tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #FFC20E;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .section-tag::before { content:''; width:22px; height:2px; background:#FFC20E; }
+
+  .intro-h {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    color: #fff;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .intro-h em { color: #FFC20E; font-style: normal; }
+  .intro-p { font-size: 14px; line-height: 1.85; color: #A8B4C8; font-weight: 300; max-width: 600px; }
+
+  /* ── FEATURES ── */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.04);
+  }
+  .feat {
+    background: #002070;
+    padding: 36px 28px;
+    position: relative;
+  }
+  .feat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #FFC20E;
+  }
+  .feat-icon { font-size: 30px; display: block; margin-bottom: 14px; }
+  .feat-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+  .feat-text { font-size: 12.5px; line-height: 1.75; color: #8899BB; font-weight: 300; }
+
+  /* ── PRODUCTS ── */
+  .products {
+    padding: 54px 44px;
+    background: linear-gradient(180deg, #003087 0%, #001855 100%);
+  }
+  .prod-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .prod-card {
+    border: 1px solid rgba(245,168,0,0.12);
+    padding: 26px;
+    background: rgba(0,16,50,0.7);
+    position: relative;
+    overflow: hidden;
+  }
+  .prod-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FFC20E, transparent);
+  }
+  .prod-n {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 44px;
+    color: rgba(245,168,0,0.07);
+    line-height: 1;
+  }
+  .prod-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    color: #FFC20E;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .prod-type { font-size: 10px; letter-spacing: 2px; color: #6677AA; text-transform: uppercase; margin-bottom: 12px; }
+  .prod-desc { font-size: 12.5px; line-height: 1.65; color: rgba(168,180,200,0.8); }
+
+  /* ── REVENDEDORES CTA ── */
+  .revendedor-cta {
+    background: linear-gradient(135deg, #001040 0%, #001040 100%);
+    padding: 60px 44px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .revendedor-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 560px; height: 560px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,168,0,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .rev-tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #FFC20E;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+  }
+  .rev-tag::before, .rev-tag::after { content:''; width:30px; height:1px; background:rgba(245,168,0,0.4); }
+
+  .rev-h {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 52px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .rev-h span { color: #FFC20E; }
+
+  .rev-sub {
+    font-size: 14px;
+    color: #A8B4C8;
+    margin-bottom: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    position: relative;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Map illustration */
+  .map-strip {
+    background: rgba(0,20,60,0.5);
+    border: 1px solid rgba(245,168,0,0.1);
+    padding: 20px 30px;
+    margin: 28px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    text-align: left;
+  }
+  .map-icon { font-size: 40px; flex-shrink: 0; }
+  .map-text {}
+  .map-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #FFC20E;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .map-desc { font-size: 12.5px; color: #A8B4C8; line-height: 1.6; }
+
+  .site-btn {
+    display: inline-block;
+    background: #FFC20E;
+    color: #003087;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 20px 56px;
+    text-decoration: none;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .site-btn::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 1px solid rgba(245,168,0,0.3);
+  }
+  .site-btn:hover { background: #FFD84D; }
+
+  .site-url {
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(168,180,200,0.45);
+    letter-spacing: 1px;
+    position: relative;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #001030;
+    padding: 22px 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #FFC20E;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: #FFC20E;
+    letter-spacing: 3px;
+  }
+  .footer-copy { font-size: 10px; color: rgba(168,180,200,0.35); letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-lines"></div>
+    <div class="glow"></div>
+
+    <div class="tire-wrap">
+      <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="210" cy="210" r="200" fill="rgba(0,18,60,0.85)"></circle>
+        <circle cx="210" cy="210" r="200" stroke="rgba(245,168,0,0.4)" stroke-width="1.5"></circle>
+        <circle cx="210" cy="210" r="185" stroke="rgba(245,168,0,0.15)" stroke-width="1"></circle>
+        <circle cx="210" cy="210" r="168" stroke="rgba(245,168,0,0.1)" stroke-width="1"></circle>
+        <g stroke="rgba(245,168,0,0.3)" stroke-width="2.5">
+          <line x1="210" y1="10" x2="210" y2="42"></line><line x1="300" y1="32" x2="284" y2="60"></line>
+          <line x1="370" y1="98" x2="349" y2="118"></line><line x1="402" y1="180" x2="378" y2="186"></line>
+          <line x1="398" y1="270" x2="374" y2="262"></line><line x1="355" y1="345" x2="337" y2="330"></line>
+          <line x1="280" y1="390" x2="268" y2="368"></line><line x1="190" y1="408" x2="186" y2="384"></line>
+          <line x1="100" y1="392" x2="102" y2="368"></line><line x1="28" y1="348" x2="36" y2="326"></line>
+          <line x1="6" y1="270" x2="30" y2="264"></line><line x1="12" y1="178" x2="36" y2="184"></line>
+          <line x1="50" y1="100" x2="70" y2="118"></line><line x1="118" y1="34" x2="130" y2="58"></line>
+        </g>
+        <circle cx="210" cy="210" r="128" fill="rgba(0,12,40,0.95)" stroke="#FFC20E" stroke-width="4"></circle>
+        <circle cx="210" cy="210" r="124" stroke="rgba(245,168,0,0.3)" stroke-width="1"></circle>
+        <g stroke="#FFC20E" stroke-width="3.5" stroke-linecap="round">
+          <line x1="210" y1="86" x2="210" y2="130"></line>
+          <line x1="296" y1="148" x2="266" y2="166"></line>
+          <line x1="296" y1="272" x2="266" y2="254"></line>
+          <line x1="210" y1="334" x2="210" y2="290"></line>
+          <line x1="124" y1="272" x2="154" y2="254"></line>
+          <line x1="124" y1="148" x2="154" y2="166"></line>
+        </g>
+        <circle cx="210" cy="210" r="58" fill="#001855" stroke="#FFC20E" stroke-width="3"></circle>
+        <circle cx="210" cy="165" r="7" fill="#FFC20E"></circle>
+        <circle cx="252" cy="188" r="7" fill="#FFC20E"></circle>
+        <circle cx="252" cy="232" r="7" fill="#FFC20E"></circle>
+        <circle cx="210" cy="255" r="7" fill="#FFC20E"></circle>
+        <circle cx="168" cy="232" r="7" fill="#FFC20E"></circle>
+        <circle cx="168" cy="188" r="7" fill="#FFC20E"></circle>
+        <circle cx="210" cy="210" r="28" fill="#001040" stroke="rgba(245,168,0,0.4)" stroke-width="1.5"></circle>
+        <circle cx="210" cy="210" r="11" fill="#FFC20E"></circle>
+      </svg>
+    </div>
+
+    <div class="hero-nav">
+      <div class="brand-block">
+        <div class="brand-logo">GOODYEAR</div>
+        <div class="brand-sub">Tire &amp; Rubber Company</div>
+        <div class="brand-division">✈ Aviation Division</div>
+      </div>
+      <div class="nav-right">
+        Líder em Aviação Comercial<br>no Brasil
+      </div>
+    </div>
+
+    <div class="hero-text">
+      <div class="eyebrow">Pneus Aeronáuticos</div>
+      <div class="hero-h1">
+        BORN
+        <span class="gold">TO FLY.</span>
+      </div>
+      <p class="hero-sub">
+        Mais de 100 anos desenvolvendo pneus para as condições mais extremas da aviação mundial. Da pista ao ar — a segurança começa aqui.
+      </p>
+      <div class="leader-badges">
+        <div class="badge">🏆 Líder Aviação Comercial BR</div>
+        <div class="badge">🌾 Líder Segmento Agrícola</div>
+        <div class="badge">✈ Líder Aviação Geral</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOLD BAR -->
+  <div class="gold-bar"></div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="stat-n">100+</div><div class="stat-l">Anos de Inovação</div></div>
+    <div class="stat"><div class="stat-n">200+</div><div class="stat-l">Modelos Certificados</div></div>
+    <div class="stat"><div class="stat-n">150+</div><div class="stat-l">Países Atendidos</div></div>
+    <div class="stat"><div class="stat-n">#1</div><div class="stat-l">Aviação Comercial BR</div></div>
+  </div>
+
+  <!-- GARANTIA BANNER -->
+  <div class="garantia">
+    <div class="garantia-icon">🛡️</div>
+    <div class="garantia-text">
+      <div class="garantia-title">Garantia Vitalícia do Pneu</div>
+      <div class="garantia-desc">Segurança e tranquilidade do primeiro ao último pouso, durante todo o ciclo de vida da sua aeronave.</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <div class="section-tag">Nossa Missão</div>
+    <div class="intro-h">Engenharia que <em>desafia</em><br>os limites da física.</div>
+    <p class="intro-p">
+      Cada pneu Goodyear Aviation é projetado para suportar forças que nenhum pneu comum jamais enfrentaria: impactos de pouso de centenas de toneladas, calor extremo nas frenagens de alta velocidade e pressões internas que chegam a 200 PSI. Confiança que vai além da pista — para todo o ciclo de vida da aeronave.
+    </p>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="feat">
+      <span class="feat-icon">⚡</span>
+      <div class="feat-title">Resistência ao Impacto</div>
+      <p class="feat-text">Estrutura radial multicamada que absorve cargas superiores a 200 toneladas no momento do pouso, repetidamente.</p>
+    </div>
+    <div class="feat">
+      <span class="feat-icon">🌡️</span>
+      <div class="feat-title">Controle Térmico</div>
+      <p class="feat-text">Compostos proprietários dissipam calor durante frenagens a mais de 280 km/h, mantendo integridade estrutural.</p>
+    </div>
+    <div class="feat">
+      <span class="feat-icon">🛡️</span>
+      <div class="feat-title">Certificação Global</div>
+      <p class="feat-text">Homologado pela FAA, EASA e mais de 50 autoridades de aviação civil e militar ao redor do mundo.</p>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="products">
+    <div class="section-tag">Linha Aviation</div>
+    <div class="intro-h" style="font-size:34px;margin-bottom:0;">O pneu <em>certo</em> para cada operação.</div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-n">01</div>
+        <div class="prod-name">Flight Eagle</div>
+        <div class="prod-type">Aviação Comercial · Larga Escala</div>
+        <p class="prod-desc">Para Boeing 737, 777, Airbus A320 e A380. Alta resistência à fadiga em operações de alta frequência.</p>
+      </div>
+      <div class="prod-card">
+        <div class="prod-n">02</div>
+        <div class="prod-name">Flight Special II</div>
+        <div class="prod-type">Jatos Executivos · Alta Performance</div>
+        <p class="prod-desc">Leveza e durabilidade para jatos corporativos. Otimizado para pistas curtas e voos de alta altitude.</p>
+      </div>
+      <div class="prod-card">
+        <div class="prod-n">03</div>
+        <div class="prod-name">Flight Custom III</div>
+        <div class="prod-type">Aviação Geral · Turbohélices</div>
+        <p class="prod-desc">Versátil para pistas variadas — asfalto, cascalho e terra batida — com máxima aderência e controle.</p>
+      </div>
+      <div class="prod-card">
+        <div class="prod-n">04</div>
+        <div class="prod-name">Flight Leader</div>
+        <div class="prod-type">Defesa · Aviação Militar</div>
+        <p class="prod-desc">Usado pelas forças armadas dos EUA e aliados. Aprovado para operações táticas em condições extremas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVENDEDORES CTA -->
+  <div class="revendedor-cta">
+    <div class="rev-tag">Rede de Revendedores</div>
+    <div class="rev-h">Encontre um revendedor<br><span>perto de você.</span></div>
+    <p class="rev-sub">
+      A Goodyear possui revendedores autorizados espalhados por todo o Brasil. Acesse nosso site e encontre o parceiro mais próximo para adquirir seus pneus com atendimento especializado.
+    </p>
+
+    <div class="map-strip">
+      <div class="map-icon">📍</div>
+      <div class="map-text">
+        <div class="map-title">Cobertura Nacional</div>
+        <div class="map-desc">Rede de revendedores autorizados em todos os estados do Brasil — do Sul ao Norte, do litoral ao interior. Suporte técnico especializado onde sua operação estiver.</div>
+      </div>
+    </div>
+
+    <a href="https://www.goodyearaviation.com/" class="site-btn">Acessar o Site &nbsp;→</a>
+    <div class="site-url">www.goodyearaviation.com</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-logo">GOODYEAR AVIATION</div>
+    <div class="footer-copy">© 2025 Goodyear Tire &amp; Rubber Company — Todos os direitos reservados</div>
+  </div>
+
+</div>
+
+
+</body></html>
